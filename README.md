@@ -3,9 +3,7 @@
 * 
  ```sh
  ## PostgreSql
-spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
-##for docker deployment uncomment below
-#spring.datasource.url=jdbc:postgresql://DB_ALIAS/admin?stringtype=unspecified
+spring.datasource.url=jdbc:postgresql://postgresqldb:5432/postgres
 spring.datasource.username=postgres
 spring.datasource.password=postgres
 spring.jpa.hibernate.ddl-auto=create

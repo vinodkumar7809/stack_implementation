@@ -1,18 +1,18 @@
-version: "3.7"
+version: '3.1'
 services:
-  db:
-    image:postgres
-    environment:
-      POSTGRES_PASSWORD:postgres
-      POSTGRES_USER:postgres
-      POSTGRES_DB:postgres
-    volumes:
-      -./pgdata:/var/lib/postgressql/data
-    ports:
-      -'5432:5432'
-  web:
+  app:
+    container_name: stack_implementation
     image: stack_implementation
-    depends_on:
-      - db
+    build: ./
     ports:
-      -"4000:4000"      
+      - "8080:8080"
+    depends_on:
+      - postgresqldb
+  postgresqldb:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
